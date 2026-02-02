@@ -1,0 +1,13 @@
+{
+  "name": "yourname/blog",
+  "description": "MVC OOP Blog on PHP 8.1",
+  "type": "project",
+  "require": {
+    "php": ">=8.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    }
+  }
+}
