@@ -10,6 +10,9 @@ final class HomeController extends Controller
 {
     public function index(): void
     {
-        echo 'HomeController';
+        $this->view('home/index', [
+            'title' => 'Главная страница',
+            'message' => 'View слой ',
+        ]);
     }
 }

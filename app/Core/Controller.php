@@ -6,5 +6,8 @@ namespace App\Core;
 
 abstract class Controller
 {
-    // Базовый класс для всех контроллеров
+    protected function view(string $view, array $params = []): void
+    {
+        View::render($view, $params);
+    }
 }
