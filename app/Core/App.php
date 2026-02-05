@@ -12,10 +12,8 @@ final class App
     {
         $router = new Router();
 
-        // Регистрируем маршруты
         $router->get('/', [HomeController::class, 'index']);
 
-        // Запускаем маршрутизацию
         $router->dispatch(
             $_SERVER['REQUEST_METHOD'],
             $_SERVER['REQUEST_URI']
