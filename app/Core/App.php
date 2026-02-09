@@ -6,6 +6,7 @@ namespace App\Core;
 
 use App\Controllers\HomeController;
 use App\Controllers\PostController;
+use App\Controllers\AuthController;
 
 final class App
 {
@@ -13,8 +14,18 @@ final class App
     {
         $router = new Router();
 
+        // Public pages
         $router->get('/', [HomeController::class, 'index']);
         $router->get('/posts', [PostController::class, 'index']);
+
+        // Auth
+        $router->get('/login', [AuthController::class, 'showLogin']);
+        $router->post('/login', [AuthController::class, 'login']);
+
+        $router->get('/register', [AuthController::class, 'showRegister']);
+        $router->post('/register', [AuthController::class, 'register']);
+
+        $router->get('/logout', [AuthController::class, 'logout']);
 
         $router->dispatch(
             $_SERVER['REQUEST_METHOD'],
