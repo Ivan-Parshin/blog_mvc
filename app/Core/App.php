@@ -8,6 +8,7 @@ use App\Controllers\HomeController;
 use App\Controllers\PostController;
 use App\Controllers\AuthController;
 use App\Controllers\AdminController;
+use App\Controllers\AdminPostController;
 
 
 final class App
@@ -30,6 +31,15 @@ final class App
         $router->get('/logout', [AuthController::class, 'logout']);
 
         $router->get('/admin', [AdminController::class, 'dashboard']);
+
+        $router->get('/admin/posts', [AdminPostController::class, 'index']);
+        $router->get('/admin/posts/create', [AdminPostController::class, 'createForm']);
+        $router->post('/admin/posts/create', [AdminPostController::class, 'create']);
+
+        $router->get('/admin/posts/edit', [AdminPostController::class, 'editForm']);
+        $router->post('/admin/posts/edit', [AdminPostController::class, 'update']);
+
+        $router->post('/admin/posts/delete', [AdminPostController::class, 'delete']);
 
         $router->dispatch(
             $_SERVER['REQUEST_METHOD'],
