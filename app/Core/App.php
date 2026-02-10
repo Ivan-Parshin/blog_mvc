@@ -7,6 +7,8 @@ namespace App\Core;
 use App\Controllers\HomeController;
 use App\Controllers\PostController;
 use App\Controllers\AuthController;
+use App\Controllers\AdminController;
+
 
 final class App
 {
@@ -26,6 +28,8 @@ final class App
         $router->post('/register', [AuthController::class, 'register']);
 
         $router->get('/logout', [AuthController::class, 'logout']);
+
+        $router->get('/admin', [AdminController::class, 'dashboard']);
 
         $router->dispatch(
             $_SERVER['REQUEST_METHOD'],
